@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тесты ПДД</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quiz.css">
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo.jpg" alt="Логотип" class="logo-img">
+                <span>ПДД ТЕСТ</span>
+            </div>
+            <div class="nav">
+                <a href="index.html">Главная</a>
+                <a href="quiz.html" class="active">Тесты</a>
+                <a href="profile.html">Профиль</a>
+                <a href="news.html">Новости</a>
+            </div>
+            <div class="auth" id="authSection">
+                <button class="btn-login" onclick="window.location.href='index.html'">Войти</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <div id="categoryScreen">
+            <h1 class="quiz-title">Выберите категорию</h1>
+            <div class="quiz-grid" id="quizCategories"></div>
+        </div>
+
+        <div id="quizScreen" style="display: none;">
+            <div class="quiz-header">
+                <button class="btn-back" id="backBtn">← Назад</button>
+                <div class="quiz-progress">
+                    <span id="currentQuestion">1</span> / <span id="totalQuestions">20</span>
+                </div>
+                <div class="quiz-timer" id="timer">20:00</div>
+            </div>
+            <div class="question-block">
+                <h2 id="questionTitle"></h2>
+                <div class="answers-grid" id="answersGrid"></div>
+            </div>
+            <div class="quiz-footer">
+                <button class="btn-green" id="nextBtn" disabled>Ответить</button>
+            </div>
+        </div>
+
+        <div id="resultScreen" style="display: none;">
+            <div class="result-card">
+                <h2>Тест завершен!</h2>
+                <div class="result-score" id="resultScore"></div>
+                <p id="resultMessage"></p>
+                <div class="result-actions">
+                    <button class="btn-green" id="retryBtn">Пройти еще раз</button>
+                    <button class="btn-login" id="homeBtn">На главную</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/services/ApiService.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/transitions.js"></script>
+</body>
+</html>

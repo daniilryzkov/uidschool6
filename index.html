@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПДД Тест</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo.jpg" alt="Логотип" class="logo-img">
+                <span>ПДД ТЕСТ</span>
+            </div>
+            <div class="nav">
+                <a href="index.html" class="active">Главная</a>
+                <a href="quiz.html">Тесты</a>
+                <a href="profile.html">Профиль</a>
+                <a href="news.html">Новости</a>
+            </div>
+            <div class="auth" id="authSection">
+                <button class="btn-login" id="loginBtn">Вход</button>
+                <button class="btn-reg" id="registerBtn">Регистрация</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h1>Проверь знание <span class="green">ПДД</span></h1>
+                <p>4 категории тестов по 20 вопросов для водителей, пешеходов, велосипедистов и самокатчиков. Доступ к тестам — только для зарегистрированных пользователей.</p>
+                <button class="btn-green" id="startBtn">Зарегистрироваться и начать</button>
+            </div>
+            <div class="hero-visual">
+                <img src="https://img.freepik.com/free-photo/closeup-green-traffic-light-evening_181624-11652.jpg?semt=ais_hybrid&w=740&q=80" alt="Зелёный сигнал светофора" class="hero-image">
+            </div>
+        </div>
+    </div>
+
+    <div class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Как это работает</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Регистрация</h3>
+                    <p>Создайте аккаунт</p>
+                </div>
+                <div class="step-divider"></div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Выбор категории</h3>
+                    <p>Водитель, пешеход, велосипедист или самокатчик</p>
+                </div>
+                <div class="step-divider"></div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Прохождение теста</h3>
+                    <p>20 вопросов с ограничением по времени</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="categories">
+        <div class="container">
+            <h2 class="section-title">Категории тестов</h2>
+            <div class="grid" id="categoriesGrid"></div>
+        </div>
+    </div>
+
+    <div class="benefits">
+        <div class="container">
+            <div class="benefit-item">
+                <div class="benefit-label">Доступ</div>
+                <h3>Только для своих</h3>
+                <p>Тесты открыты после регистрации</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-label">Точность</div>
+                <h3>Актуальные вопросы</h3>
+                <p>Соответствуют официальным билетам</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-label">Защита</div>
+                <h3>Безопасность данных</h3>
+                <p>Регистрация с подтверждением email</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-label">Удобство</div>
+                <h3>Повторение ошибок</h3>
+                <p>Тренируйте сложные темы отдельно</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>© 2026 ПДД Тест. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="#">О проекте</a>
+                <a href="#">Контакты</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="authModal">
+        <div class="modal-bg"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <span id="modalTitle">Регистрация</span>
+                <button class="modal-close" id="closeModalBtn">×</button>
+            </div>
+            <div class="modal-body">
+                <!-- Форма входа -->
+                <form id="loginForm" style="display:none;">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Пароль" required>
+                    <button type="submit" class="btn-green full">Войти</button>
+                    <p class="modal-switch">Нет аккаунта? <button type="button" class="btn-link" id="switchToRegister">Зарегистрироваться</button></p>
+                </form>
+
+                <!-- Форма регистрации -->
+                <form id="regForm">
+                    <input type="text" id="userName" placeholder="Ваше имя" required>
+                    <input type="email" id="userEmail" placeholder="Email" required>
+                    <input type="password" id="userPassword" placeholder="Пароль (минимум 6 символов)" required minlength="6">
+                    
+                    <!-- Чекбокс согласия 152-ФЗ -->
+                    <label class="consent-label">
+                        <input type="checkbox" id="consentCheck" required>
+                        <span>Я даю согласие на обработку персональных данных в соответствии с <a href="#" onclick="event.preventDefault(); alert('Федеральный закон от 27.07.2006 № 152-ФЗ «О персональных данных»\n\nНастоящим я подтверждаю, что ознакомлен(а) с условиями обработки моих персональных данных и даю согласие на их обработку.')">152-ФЗ</a></span>
+                    </label>
+                    
+                    <button type="submit" class="btn-green full" id="submitRegBtn">Зарегистрироваться</button>
+                    <p class="modal-switch">Уже есть аккаунт? <button type="button" class="btn-link" id="switchToLogin">Войти</button></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/services/ApiService.js"></script>
+    <script src="js/components/CategoryCard.js"></script>
+    <script src="js/components/AuthModal.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

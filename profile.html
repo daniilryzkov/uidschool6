@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль | ПДД Тест</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo.jpg" alt="Логотип" class="logo-img">
+                <span>ПДД ТЕСТ</span>
+            </div>
+            <div class="nav">
+                <a href="index.html">Главная</a>
+                <a href="quiz.html">Тесты</a>
+                <a href="profile.html" class="active">Профиль</a>
+                <a href="news.html">Новости</a>
+            </div>
+            <div class="auth" id="authSection">
+                <button class="btn-login" onclick="window.location.href='index.html'">Войти</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-info">
+                <div class="profile-avatar" id="profileAvatar"></div>
+                <div class="profile-details">
+                    <h1 id="profileName">Загрузка...</h1>
+                    <p id="profileEmail"></p>
+                    <p class="profile-date" id="profileDate"></p>
+                </div>
+            </div>
+            <button class="btn-login" onclick="logout()">Выйти из аккаунта</button>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalTests">0</div>
+                <div class="stat-label">Всего тестов</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="avgScore">0%</div>
+                <div class="stat-label">Средний результат</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="bestScore">0/0</div>
+                <div class="stat-label">Лучший результат</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="lastTest">-</div>
+                <div class="stat-label">Последний тест</div>
+            </div>
+        </div>
+
+        <div class="category-stats">
+            <h2>Прогресс по категориям</h2>
+            <div class="category-bars" id="categoryBars">
+                <div class="category-bar-item">
+                    <div class="bar-label">Загрузка...</div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="bar-value">0%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h2>История тестов</h2>
+            <div class="history-list" id="historyList">
+                <p class="empty-text">У вас пока нет завершенных тестов</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/services/ApiService.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/transitions.js"></script>
+</body>
+</html>
